@@ -1,15 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import LogoImage from "../assets/logo.png";
 
 const Card = () => {
   return (
     <div>
       <div className="p-2 w-full flex justify-between gap-3 md:gap-4 bg-white shadow rounded">
-        <img
-          src="src/assets/logo.png"
-          alt="image"
-          className="h-20 w-20 rounded"
-        />
+        <img src={LogoImage} alt="image" className="h-20 w-20 rounded" />
 
         <div className="flex flex-col flex-grow gap-1 md:gap-2">
           <p className="text-left text-xs text-n-blue">Company Name</p>

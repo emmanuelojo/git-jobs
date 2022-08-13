@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import LogoImage from "../assets/logo.png";
 
 const JobDetails = () => {
   return (
@@ -46,11 +47,7 @@ const JobDetails = () => {
         </div>
 
         <div className="flex gap-3">
-          <img
-            src="src/assets/logo.png"
-            alt="image"
-            className="h-16 w-16  rounded"
-          />
+          <img src={LogoImage} alt="image" className="h-16 w-16  rounded" />
           <div className="flex flex-col">
             <p className="text-left text-n-blue font-bold">Kasisto</p>
             <div className="flex items-center gap-2 text-xs text-n-gray">
