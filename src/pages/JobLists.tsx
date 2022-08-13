@@ -1,12 +1,27 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Card from "../components/Card";
+import { Job } from "../types/Job";
 
 const JobLists = () => {
-  const [jobs, setJobs] = useState([]);
+  const [jobs, setJobs] = useState<Job[]>([]);
 
   // fetch('https://jobs.github.com/api').then((res) => {
 
   // })
+  useEffect(() => {
+    const fetchJobs = async () => {
+      const response = await fetch("https://jobs-api-jekon.herokuapp.com/jobs");
+
+      const json = await response.json();
+
+      if (response.ok) {
+        setJobs(json);
+      }
+    };
+
+    fetchJobs();
+  }, []);
+
   return (
     <div className="mt-5 flex flex-col md:flex-row gap-4">
       <div className="w-full md:w-1/3 ">
@@ -52,8 +67,8 @@ const JobLists = () => {
         </div>
       </div>
 
-      <div className="w-full md:w-2/3">
-        <Card />
+      <div className="w-full md:w-2/3 grid gap-5">
+        {jobs && jobs.map((job: Job) => <Card key={job.id} job={job} />)}
       </div>
     </div>
   );
